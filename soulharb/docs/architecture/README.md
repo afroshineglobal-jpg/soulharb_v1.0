@@ -4,7 +4,7 @@ Status: approved 2026-11-19. Source of truth for implementation.
 
 Source blueprint (live doc): https://claude.ai/artifact/BTXvgFrb2xxqsq17Q1QwDY
 
-The three diagrams (system architecture, listener journey, ERD) live only in the source blueprint for now.
+The system architecture, listener journey and ERD diagrams are Mermaid blocks in sections 3, 4 and 5.
 
 The four documents describe a sound listener-onboarding product, but they disagree with each other on vendors, scope and the journey, and they leave the highest-risk areas (safety, ID data, payments and legal status of listeners) undefined. This blueprint resolves those conflicts, lists what is missing, and gives a build-ready design for a single-VPS MVP.
 

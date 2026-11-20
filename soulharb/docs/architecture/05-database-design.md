@@ -50,8 +50,23 @@ The model has 12 domains and about 50 tables in Postgres on Supabase, with the a
 
 ### 5.5 ERD
 
-[Diagram not exported: entity relationships · core tables]
+```mermaid
+flowchart LR
+  users["users<br/>auth user id, email, locale"] --> listener_profiles["listener_profiles<br/>names, country, bio, photo"]
+  users --> user_consents["user_consents<br/>document version and purpose"]
+  users --> applications["applications<br/>state, version, decision"]
+  cohorts["cohorts<br/>intake window and capacity"] --> applications
+  applications --> application_state_history["application_state_history<br/>from, to, actor, reason"]
+  applications --> answers["answers<br/>value per question version"]
+  applications --> verification_documents["verification_documents<br/>encrypted path, purge date"]
+  applications --> bookings["bookings<br/>interview, training sessions"]
+  bookings --> interview_scorecards["interview_scorecards<br/>scores, decision, immutable"]
+  applications --> training_progress["training_progress<br/>heartbeats, completion"]
+  applications --> payments["payments<br/>provider, amount, status"]
+  applications --> tickets["tickets<br/>category, severity, SLA"]
+  style applications stroke-width:3px
+```
+
+Arrow: parent record to its child records. Core tables only; the full list is in 5.2.
 
 A user owns many applications, and the application, not the user, owns the answers, documents, bookings, training progress, payments and tickets, so a reapplication never mixes with an earlier attempt. The `audit_log` table sits outside this tree and is written by every module.
-
-> Diagram: exported markdown omits embedded diagrams. See the source blueprint (docs/architecture/README.md) until a Mermaid version is added.
