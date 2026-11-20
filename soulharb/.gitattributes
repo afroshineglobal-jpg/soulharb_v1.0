@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.sql text eol=lf
+*.sh text eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary
+pnpm-lock.yaml linguist-generated=true -diff
+docs/api/openapi.yaml linguist-generated=true

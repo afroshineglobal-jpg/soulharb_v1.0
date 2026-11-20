@@ -1,0 +1,31 @@
+# Workspace definition for pnpm 10.
+# Every directory matched here with its own package.json becomes a workspace package.
+packages:
+  - apps/*
+  - packages/*
+  - tests/*
+
+# Single source of truth for versions shared by more than one package.
+# A package opts in with "catalog:" instead of a version range, so upgrades are one-line changes.
+catalog:
+  "@eslint/js": ^9.39.5
+  "@types/node": ^22.20.5
+  eslint: ^9.39.5
+  prettier: ^3.10.1
+  tsup: ^9.0.0
+  typescript: ~5.9.3
+  typescript-eslint: ^8.73.0
+  vitest: ^5.1.1
+  zod: ^4.6.7
+
+# pnpm 10 does not run dependency install scripts unless they are listed here.
+# Add a package only after reviewing why it needs a build step.
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - unrs-resolver
+
+# Supply-chain controls: refuse versions published in the last 24 hours (value is minutes),
+# and refuse a version that was published without the provenance an earlier version had.
+minimumReleaseAge: 1440
+trustPolicy: no-downgrade

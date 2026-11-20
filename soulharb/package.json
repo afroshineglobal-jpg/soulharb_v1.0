@@ -1,0 +1,37 @@
+{
+  "name": "soulharb",
+  "version": "0.0.0",
+  "private": true,
+  "description": "SoulHarb: human-to-human empathetic listening platform. Phase 1: listener recruitment, verification, interview, training and certification.",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22.12.0 <23",
+    "pnpm": ">=10.34.9 <11"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "check": "turbo run lint typecheck test",
+    "openapi": "turbo run openapi",
+    "db:types": "turbo run db:types",
+    "i18n:check": "turbo run i18n:check",
+    "e2e": "turbo run e2e",
+    "clean": "turbo run clean && rm -rf node_modules .turbo",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky || true"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "catalog:",
+    "turbo": "^2.11.13",
+    "typescript": "catalog:"
+  }
+}

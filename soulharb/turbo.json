@@ -1,0 +1,47 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "stream",
+  "envMode": "strict",
+  "globalDependencies": [".nvmrc", "pnpm-workspace.yaml"],
+  "globalPassThroughEnv": ["CI", "GITHUB_ACTIONS", "GITHUB_SHA", "RELEASE_VERSION"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env.production*"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+      "env": ["NODE_ENV", "NEXT_PUBLIC_*"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"]
+    },
+    "openapi": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "db:types": {
+      "cache": false
+    },
+    "i18n:check": {
+      "dependsOn": ["^build"]
+    },
+    "e2e": {
+      "dependsOn": ["build"],
+      "cache": false,
+      "env": ["E2E_*"]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
