@@ -1,7 +1,5 @@
-/**
- * Runs on staged files only. ESLint is added to this list in the packages/config step,
- * once the shared ESLint preset exists.
- */
+/** Runs on staged files only. */
 export default {
-  '*.{ts,tsx,js,jsx,mjs,cjs,json,md,yml,yaml,css}': ['prettier --write'],
+  '*.{ts,tsx,js,jsx,mjs,cjs}': ['eslint --fix --no-warn-ignored', 'prettier --write'],
+  '*.{json,md,yml,yaml,css}': ['prettier --write'],
 };

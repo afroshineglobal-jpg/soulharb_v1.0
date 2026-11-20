@@ -8,11 +8,15 @@ packages:
 # Single source of truth for versions shared by more than one package.
 # A package opts in with "catalog:" instead of a version range, so upgrades are one-line changes.
 catalog:
-  "@eslint/js": ^9.39.5
-  "@types/node": ^24.19.2
   eslint: ^9.39.5
+  "@eslint/js": ^9.39.5
+  globals: ^17.14.0
+  postcss: ^8.5.33
   prettier: ^3.10.1
+  tailwindcss: ^4.3.5
+  "@tailwindcss/postcss": ^4.3.5
   tsup: ^9.0.0
+  "@types/node": ^24.19.2
   typescript: ~5.9.3
   typescript-eslint: ^8.73.0
   vitest: ^5.1.1

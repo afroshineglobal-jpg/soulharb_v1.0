@@ -28,6 +28,8 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
+    "@soulharb/config": "workspace:*",
+    "eslint": "catalog:",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "prettier": "catalog:",

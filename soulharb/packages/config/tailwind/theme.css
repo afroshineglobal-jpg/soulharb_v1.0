@@ -1,0 +1,83 @@
+/*
+ * SoulHarb Tailwind v4 theme preset.
+ *
+ * Usage in an app stylesheet:
+ *   @import "tailwindcss";
+ *   @import "@soulharb/config/tailwind/theme.css";
+ *   @source "../../../packages/ui/src";
+ *
+ * PLACEHOLDER TOKENS: the brand palette and typography are not yet supplied (blueprint
+ * decision 15). The values below are a neutral, accessible stand-in so components can be
+ * built against stable token names. Replace the values, not the names, when the brand
+ * assets arrive. Text and surface pairings below meet WCAG 2.1 AA contrast (4.5:1).
+ */
+
+@theme {
+  /* Brand (placeholder): 600 on white is 6.2:1, white on 700 is 8.4:1. */
+  --color-brand-50: #eef6f6;
+  --color-brand-100: #d5ebeb;
+  --color-brand-200: #abd6d7;
+  --color-brand-300: #7bbcbe;
+  --color-brand-400: #4a9ea1;
+  --color-brand-500: #2f8386;
+  --color-brand-600: #266b6e;
+  --color-brand-700: #1f5558;
+  --color-brand-800: #1a4244;
+  --color-brand-900: #143133;
+
+  /* Semantic colours. Use these in components, not the raw scale. */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f6f7f8;
+  --color-ink: #1b2124;
+  --color-ink-muted: #4a5459;
+  --color-line: #d5dade;
+  --color-focus: #1a4fd6;
+  --color-danger: #b42318;
+  --color-warning: #8a5300;
+  --color-success: #1d6b3a;
+
+  /* System font stack until brand typography is chosen. */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Minimum touch target: 44px at the default root size (WCAG 2.5.5, blueprint 8.1). */
+  --spacing-touch: 2.75rem;
+
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-surface);
+  }
+
+  /* Visible focus everywhere, for keyboard users. */
+  :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  /* Respect the reduced-motion preference. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Apply to any button, link or control that is smaller than 44px by default. */
+@utility touch-target {
+  min-height: var(--spacing-touch);
+  min-width: var(--spacing-touch);
+}
