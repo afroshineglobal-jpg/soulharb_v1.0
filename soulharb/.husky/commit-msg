@@ -1,1 +1,3 @@
-pnpm exec commitlint --edit "$1"
+# Git runs hooks from the repository root, which is one level above this workspace.
+# With no value, commitlint finds the commit message file from the git directory itself.
+cd soulharb && pnpm exec commitlint --edit

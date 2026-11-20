@@ -1,1 +1,1 @@
-pnpm exec lint-staged
+cd soulharb && pnpm exec lint-staged

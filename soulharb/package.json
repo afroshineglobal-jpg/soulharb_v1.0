@@ -23,7 +23,7 @@
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky || true"
+    "prepare": "cd .. && husky soulharb/.husky"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",
